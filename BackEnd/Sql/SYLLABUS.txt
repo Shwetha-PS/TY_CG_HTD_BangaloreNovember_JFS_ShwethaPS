@@ -1,0 +1,41 @@
+pROJECTION:-							
+								
+SELECT */ [DISTINCT] COLUMN_NAME EXPRESSION [ALLIAS]				
+FROM TABLE_NAME						
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECTION:-							ORDER OF EXECUTION
+
+SELECT */ [DISTINCT] COLUMN_NAME EXPRESSION [ALLIAS]		(I) FROM
+FROM TABLE_NAME						(II)WHERE   => ROW BY ROW
+WHERE <FILTER CONDITION>    					(III)SELECT   => ROW BY ROW
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GROUP BY:-
+								ORDER OF EXECUTION	
+SELECT */ [DISTINCT] COLUMN_NAME EXPRESSION [ALLIAS]		(I)FROM
+FROM TABLE_NAME						(II)WHERE      {  IF ANY  }  => ROW BY ROW
+[  WHERE <FILTER CONDITION>  ]  					(III)GROUP BY  => ROW BY ROW
+GROUP BY COLUMN_NAME						(IV)SELECT   => GROUP BY GROUP
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HAVING CLAUSE:-
+								ORDER OF EXECUTION	
+SELECT */ [DISTINCT] COLUMN_NAME EXPRESSION [ALLIAS]		(I)FROM
+FROM TABLE_NAME						(II)WHERE      {  IF ANY  }  => ROW BY ROW
+[  WHERE <FILTER CONDITION>  ]  					(III)GROUP BY    => ROW BY ROW
+GROUP BY COLUMN_NAME						(IV)HAVING     => GROUP BY GROUP  
+HAVING <GROUP FILTER CONDITION>					(V)SELECT      => GROUP BY GROUP
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ORDER BY CLAUSE:-
+								ORDER OF EXECUTION	
+SELECT */ [DISTINCT] COLUMN_NAME EXPRESSION [ALLIAS]		(I)FROM
+FROM TABLE_NAME						(II)WHERE      {  IF ANY  }  => ROW BY ROW
+[  WHERE <FILTER CONDITION>  ]  					(III)GROUP BY    => ROW BY ROW
+[  GROUP BY COLUMN_NAME	    ]					(IV)HAVING     => GROUP BY GROUP  
+[  HAVING <GROUP FILTER CONDITION> ]				(V)SELECT      => GROUP BY GROUP
+ORDER BY COLUMN_NAME						(VI)ORDER BY  => ROW BY ROW
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+WHENEVER THERE IS UNKNOWN QUERIES WE GO  TO SUBQUERIES.
