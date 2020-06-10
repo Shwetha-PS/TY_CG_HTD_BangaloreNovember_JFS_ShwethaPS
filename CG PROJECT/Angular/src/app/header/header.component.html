@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand text-dark font-weight-bold" style="font-family: sans-serif;" routerLink="/"
+      style="color: white;">
+        style="height: 50px; width: 50px; float: left;">
+      <h1 style="color: white;font-family: cursive;">FLIGHTMANAGEMENTSYSTEM</h1>
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ml-5">
+        <li class="nav-item">
+          <a class="nav-link" style="font-size: 10px;" routerLink="/aboutus" style="font-family: cursive;">About us</a>
+        </li>
+      </ul>
+      <ul style="float: right;" style="list-style-type:none">
+        <li class="nav-item " >
+          <a class="nav-link btn btn-primary" routerLink="/addflight" style="font-family: cursive;"
+            style="color: white;">Addflight</a>
+        </li>
+      </ul>
+        <ul style="float: right;" style="list-style-type:none">
+            <li class="nav-item " >
+              <a class="nav-link btn btn-primary" routerLink="/getallflights" style="font-family: cursive;"
+                style="color: white;">View Flights</a>
+            </li>
+            </ul>
+    
+      <!-- <ul style="list-style-type:none">
+        <li>
+          <a class="nav-link btn btn-info" routerLink="/sign-in" style="font-family: cursive;" *ngIf='isLoggedIn()'
+            (click)='logout()'>LOGOUT</a>
+        </li>
+      </ul> -->
+    </div>
+  </nav>

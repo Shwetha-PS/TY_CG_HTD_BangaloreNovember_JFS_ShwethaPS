@@ -1,0 +1,41 @@
+<div class="alert alert-success" *ngIf='message'>
+    {{message}}
+</div>
+<div class="alert alert-danger" *ngIf='error'>
+    {{error}}
+</div>
+<div class="container mt-3">
+    <table class="table table-boredered table-hover">
+        <thead class="thead-peace">
+            <tr>
+                <th>Index</th>
+                <th>Flight Number</th>
+                <th>Carrier Name</th>
+                <th>Flight Model</th>
+                <th>Seat Capacity</th>
+                <th>Delete</th>
+                <th></th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let flight of flights; index as i' appColor>
+                <td appColor>{{i+1}}</td>
+                <td>{{flight.flightNumber}}</td>
+                <td>{{flight.carrierName}}</td>
+                <td>{{flight.flightModel}}</td>
+                <td>{{flight.seatCapacity}}</td>
+                <td>
+                    <button class="btn btn-outline-danger" (click)='deleteflight(flight)'>
+                        Delete
+                    </button>
+                <td>
+                <td>
+                    <button class="btn btn-outline-secondary"  (click)='updateflight(flight)'>
+                        Modify
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

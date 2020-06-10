@@ -1,0 +1,70 @@
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #addflightform='ngForm' (ngSubmit)='add(addflightform)'>
+        <div class="card">
+            <div class="card-header">
+                Add Flights
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="carrierName">Carrier Name </label>
+                    <input type="text" name="carrierName" id="carrierName" minlength="3" required #carrierName='ngModel' ngModel
+                        class="form-control">
+                    <div *ngIf='carrierName.touched && carrierName.invalid'>
+                        <div class="alert alert-danger" *ngIf='carrierName.errors.required'>
+                            This field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='carrierName.errors.minlength'>
+                            minimum 3 characters are required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="flightNumber">Flight Number</label>
+                    <input type="number" name="flightNumber" id="flightNumber" minimum="0" minlength="3" required #flightNumber='ngModel' ngModel
+                        class="form-control">
+                    <div *ngIf='flightNumber.touched && flightNumber.invalid'>
+                        <div class="alert alert-danger" *ngIf='flightNumber.errors.required'>
+                            This field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='flightNumber.errors.minimum'>
+                            No negative numbers
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="flightModel">Flight Model </label>
+                    <input type="text" name="flightModel" id="flightModel" minlength="3" required #flightModel='ngModel' ngModel
+                        class="form-control">
+                    <div *ngIf='flightModel.touched && flightModel.invalid'>
+                        <div class="alert alert-danger" *ngIf='flightModel.errors.required'>
+                            This field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='flightModel.errors.minlength'>
+                            minimum 3 characters are required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="seatCapacity">SeatCapacity</label>
+                    <input type="number" name="seatCapacity" id="seatCapacity" minlength="1" maxlength="5" required #seatCapacity='ngModel' ngModel
+                        class="form-control">
+                    <div *ngIf='seatCapacity.touched && seatCapacity.invalid'>
+                        <div class="alert alert-danger" *ngIf='seatCapacity.errors.required'>
+                            This field is mandatory
+                        </div>
+                        <div class="alert alert-danger" *ngIf='seatCapacity.errors.minlength'>
+                            No negative numbers
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-primary float-right">
+                    Add Flight
+                </button>
+            </div>
+        </div>  
+    </form>
+</div>
